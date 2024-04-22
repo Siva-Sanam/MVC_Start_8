@@ -1,0 +1,312 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-"
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>About Us</title>
+    <style>
+
+
+
+
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1616790037235-d9bab9dd2627?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            min-height: 1000px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+
+        .navbar-brand {
+            color: #ffffff;
+            font-size: 20px;
+            font-style: italic       
+        }
+
+
+
+        .flip-container {
+            perspective: 1000px;
+            display: inline-block;
+            margin: 20px;
+            width: 260px;
+            height: 260px;
+        }
+
+
+
+        .flipper {
+            transition: 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        .front, .back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        .front {
+            z-index: 2;
+            background-color: #ccc;
+        }
+
+
+
+        .back {
+            transform: rotateY(180deg);
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+
+
+        .flip-container:hover .flipper {
+            transform: rotateY(180deg);
+        }
+
+
+
+        .back h2, .back p {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<nav class="navbar navbar-expand-md navbar-light " style="background-color: #ffffff;">
+    <a href="#" class="navbar-brand">
+        <img src="https://godriverental.com/wp-content/uploads/2022/10/Go-Drive-Logo-invertido.png" alt="Logo" class="logo" style="max-width: 125px; height: auto;">
+        <span id="loggedInUser" class="navbar-text"></span>
+        <style>
+            .navbar-brand {
+                color: #ffffff;
+                font-size: 24px;
+                font-style: italic
+            }
+        </style>
+
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <div class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="index.cshtml" class="nav-item nav-link">Home</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Book.cshtml" class="nav-item nav-link">Bookings</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Locations.cshtml" class="nav-item nav-link">Locations</a></b>
+
+            </li>
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Analytics.cshtml" class="nav-item nav-link">Analytics</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="SignUp.cshtml" class="nav-item nav-link">Sign Up</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="AboutUs.cshtml" class="nav-item nav-link">About us</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Feedback.cshtml" class="nav-item nav-link">Feedback</a></b>
+
+            </li>
+
+        </div>
+    </div>
+
+</nav>
+
+
+<body>
+    <div style="margin-top: 80px;"></div>
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="front">
+                <img src="siva.png" style="width: 100%; height: 100%;">
+            </div>
+            <div class="back">
+                <h2>Siva Sanam</h2>
+                <p>Currently a student at USF's BAIS graduate program, Siva has worked as a Sr.Data analyst for about 4 years. His contributions include designing BookNow and Sign Up pages for the website.</p>
+                <!-- Add more information as needed -->
+            </div>
+        </div>
+    </div>
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="front">
+                <img src="cvk.jpg" style="width: 100%; height: 100%;">
+            </div>
+            <div class="back">
+                <h2>Keerthi C</h2>
+                <p>She is pursuing Masters at USF,BAIS Program.Keerthi has worked as Sr.System Analyst.Her Contributions include designing Home Page and Feedback Page for the website.</p>
+                <!-- Add more information as needed -->
+            </div>
+        </div>
+    </div>
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="front">
+                <img src="saketh.png" style="width: 100%; height: 100%;">
+            </div>
+            <div class="back">
+                <h2>Saketh R</h2>
+                <p>Currently a Masters Student at USF'S BAIS Graduate Program.Saketh has worked as SoftwareEngineer for 1 year.He embedded the Google maps API with a created custom map and designed the AboutUs Page.</p>
+                <!-- Add more information as needed -->
+            </div>
+        </div>
+    </div>
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="front">
+                <img src="tharun.png" style="width: 100%; height: 100%;">
+            </div>
+            <div class="back">
+                <h2>SaiTharun N</h2>
+                <p>Pursuing his Masters at USF'S BAIS Gradute Program.Tharun has worked as ProgramAnalyst for 3 years.He designed Chart page and developed Logical Datamodel for the website.</p>
+                <!-- Add more information as needed -->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="container" style="color:white">
+                <h2>Logical Data Model</h2>
+                <img src="Datamodel.png" alt="DataModel" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+        <div class="col">
+            <div class="container" style="text-align: right;">
+                <a href="https://github.com/Siva-Sanam/Assignment_LookAndFeel" style="color: white;">Sourcecode:Github></a>
+            </div>
+        </div>
+    </div>
+    <!-- Add more flip-container elements as needed -->
+</body>
+</html>
+
+

@@ -1,0 +1,315 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Car Reviews</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('image-0.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .review-card {
+            margin-bottom: 10px;
+        }
+
+        /* Decrease the width of the columns */
+        .form-group {
+            max-width: 700px;
+        }
+
+        .bold-label {
+            font-weight: bold;
+        }
+
+        .required-field::after {
+            content: '*';
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<nav class="navbar navbar-expand-md navbar-light " style="background-color: #ffffff;">
+    <a href="#" class="navbar-brand">
+        <img src="https://godriverental.com/wp-content/uploads/2022/10/Go-Drive-Logo-invertido.png" alt="Logo" class="logo" style="max-width: 125px; height: auto;">
+        <span id="loggedInUser" class="navbar-text"></span>
+        <style>
+            .navbar-brand {
+                color: #ffffff;
+                font-size: 24px;
+                font-style: italic
+            }
+        </style>
+
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <div class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="index.cshtml" class="nav-item nav-link">Home</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Book.cshtml" class="nav-item nav-link">Bookings</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Locations.cshtml" class="nav-item nav-link">Locations</a></b>
+
+            </li>
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Analytics.cshtml" class="nav-item nav-link">Analytics</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="SignUp.cshtml" class="nav-item nav-link">Sign Up</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="AboutUs.cshtml" class="nav-item nav-link">About us</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Feedback.cshtml" class="nav-item nav-link">Feedback</a></b>
+
+            </li>
+
+        </div>
+    </div>
+
+</nav>
+
+<script>
+    let reviews = []; // Global variable to store reviews
+
+    function addReview() {
+        const username = document.getElementById('username').value.trim();
+        const phoneNumber = document.getElementById('phoneNumber').value.trim();
+        const carType = document.getElementById('carType').value.trim();
+        const carModel = document.getElementById('carModel').value.trim();
+        const rating = document.getElementById('rating').value.trim(); // Rating is now a required field
+        const rentFromDate = document.getElementById('rentFromDate').value;
+        const rentToDate = document.getElementById('rentToDate').value;
+        const reviewText = document.getElementById('reviewText').value.trim();
+
+        // Check if required fields are not empty
+        if (!username || !rating || !carModel || !reviewText) {
+            alert('Name, rating, car model, and review are mandatory fields.');
+            return;
+        }
+
+        const review = {
+            id: Date.now(),
+            user: username,
+            phone: phoneNumber,
+            type: carType,
+            model: carModel,
+            rating: rating,
+            rentFrom: rentFromDate,
+            rentTo: rentToDate,
+            text: reviewText
+        };
+
+        reviews.push(review);
+
+        // Clear input fields
+        document.getElementById('username').value = '';
+        document.getElementById('phoneNumber').value = '';
+        document.getElementById('carType').value = '';
+        document.getElementById('carModel').value = '';
+        document.getElementById('rating').value = '';
+        document.getElementById('rentFromDate').value = '';
+        document.getElementById('rentToDate').value = '';
+        document.getElementById('reviewText').value = '';
+
+        displayReviews();
+    }
+
+    function editReview(id) {
+        const reviewIndex = reviews.findIndex(review => review.id === id);
+        if (reviewIndex !== -1) {
+            const newUsername = prompt('Edit your name:', reviews[reviewIndex].user);
+            const newPhoneNumber = prompt('Edit your phone number:', reviews[reviewIndex].phone);
+            const newCarType = prompt('Edit the car type:', reviews[reviewIndex].type);
+            const newCarModel = prompt('Edit the car model:', reviews[reviewIndex].model);
+            const newRating = prompt('Edit your rating (out of 10):', reviews[reviewIndex].rating);
+            const newRentFromDate = prompt('Edit the rent from date:', reviews[reviewIndex].rentFrom);
+            const newRentToDate = prompt('Edit the rent to date:', reviews[reviewIndex].rentTo);
+            const newText = prompt('Edit your review:', reviews[reviewIndex].text);
+            reviews[reviewIndex].user = newUsername;
+            reviews[reviewIndex].phone = newPhoneNumber;
+            reviews[reviewIndex].type = newCarType;
+            reviews[reviewIndex].model = newCarModel;
+            reviews[reviewIndex].rating = newRating;
+            reviews[reviewIndex].rentFrom = newRentFromDate;
+            reviews[reviewIndex].rentTo = newRentToDate;
+            reviews[reviewIndex].text = newText;
+            displayReviews();
+        }
+    }
+
+    function deleteReview(id) {
+        reviews = reviews.filter(review => review.id !== id);
+        displayReviews();
+    }
+
+    function displayReviews() {
+        const reviewsContainer = document.getElementById('reviewsContainer');
+        reviewsContainer.innerHTML = '';
+        reviews.forEach(review => {
+            reviewsContainer.innerHTML += `
+    <div class="card review-card">
+    <div class="card-body">
+    <h5 class="card-title"><b>${review.user}</b></h5>
+    <h6 class="card-subtitle mb-2 text-muted">${review.phone}</h6>
+    <div><b>${review.type}</b> - <b>${review.model}</b></div>
+    <div class="rating"><b>Rating:</b> ${review.rating}/10</div>
+    <div><b>Rental Period:</b> ${review.rentFrom} to ${review.rentTo}</div>
+    <p class="card-text">${review.text}</p>
+    <button onclick="editReview(${review.id})" class="btn btn-primary">Edit</button>
+    <button onclick="deleteReview(${review.id})" class="btn btn-danger">Delete</button>
+    </div>
+    </div>
+              `;
+        });
+    }
+</script>
+<body>
+    <div class="container">
+        <h2>Rental Car Reviews</h2>
+        <div class="form-group">
+            <label for="username" class="bold-label required-field">Your Name:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber" class="bold-label">Phone Number:</label>
+            <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="carType" class="bold-label">Car Type:</label>
+            <input type="text" class="form-control" id="carType" placeholder="Enter the car type (e.g., SUV, Sedan)">
+        </div>
+        <div class="form-group">
+            <label for="carModel" class="bold-label required-field">Car Model:</label>
+            <input type="text" class="form-control" id="carModel" placeholder="Enter the car model">
+        </div>
+        <div class="form-group">
+            <label for="rating" class="bold-label required-field">Rating:</label>
+            <input type="number" class="form-control" id="rating" placeholder="Rate out of 10" min="1" max="10">
+        </div>
+        <div class="form-group">
+            <label for="rentFromDate" class="bold-label">Rent From:</label>
+            <input type="date" class="form-control" id="rentFromDate">
+        </div>
+        <div class="form-group">
+            <label for="rentToDate" class="bold-label">Rent To:</label>
+            <input type="date" class="form-control" id="rentToDate">
+        </div>
+        <div class="form-group">
+            <label for="reviewText" class="bold-label required-field">Your Review:</label>
+            <textarea class="form-control" id="reviewText" rows="3" placeholder="Write your review here"></textarea>
+        </div>
+        <button onclick="addReview()" class="btn btn-success">Add Review</button>
+        <hr>
+        <div id="reviewsContainer">
+            <!-- Reviews will be displayed here -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.7.2/dist/umd/popper.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

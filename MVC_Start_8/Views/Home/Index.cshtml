@@ -2,14 +2,527 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+        }
+        .navbar-text {
+            color: blue;
+        }
+
+        .logo {
+            height: 70px;
+            margin-right: 0px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-img {
+            background-image: url(https://images.unsplash.com/photo-1617427618363-05c520d7eb5a?q=80&w=1926&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            min-height: 1000px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            position: absolute;
+            right: 0;
+            margin: 10px;
+            max-width: 400px;
+            max-height: 600px;
+            padding: 26px;
+            background-color: rgb(250, 245, 245);
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+            input[type=text]:focus,
+            input[type=password]:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+        .btn {
+            background-color: #f30c0c;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+            .btn:hover {
+                opacity: 1;
+            }
+
+        .about-div {
+            width: 100%;
+            height: auto;
+            padding: 1px;
+            background-color: #f0e5fc;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .blog-line {
+            position: relative;
+            width: 150px;
+            height: 8px;
+            background-image: linear-gradient(-45deg, aqua, pink, aquamarine);
+            border-radius: 20px;
+            left: 0px;
+        }
+
+        .blog-txt a {
+            text-decoration: none;
+            color: #f15;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: 'Cookie', cursive;
+        }
+
+        .about-div img {
+            width: 360px;
+            height: 360px;
+            border-radius: 8px;
+            border: 8px solid rgb(8, 8, 8);
+            display: inline;
+            margin-top: 10px;
+            box-shadow: 0 3px 10px 0 rgba(100, 100, 100, .7);
+            transition-duration: .5s;
+        }
+
+            .about-div img:hover {
+                transform: scale(0.8);
+            }
+
+        .about-txt {
+            width: 60%;
+            height: auto;
+            font-size: 22px;
+            color: #333;
+            line-height: 30px;
+        }
+
+            .about-txt a {
+                text-decoration: none;
+                font-size: 25px;
+                color: rgb(8, 8, 8);
+                margin-right: 20px;
+            }
+
+        @@media screen and (max-width:768px) {
+
+            .about-div {
+                width: 100%;
+                height: auto;
+                padding: 0px;
+                background-color: #d4f8f2;
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+                .about-div img {
+                    border-radius: 50%;
+                    border: 8px solid rgb(12, 12, 12);
+                    display: inline;
+                    margin-top: 10px;
+                    box-shadow: 0 3px 10px 0 rgba(100, 100, 100, .7);
+                    transition-duration: .5s;
+                }
+
+                    .about-div img:hover {
+                        transform: scale(1.1);
+                    }
+
+            .about-txt {
+                width: 80%;
+                height: auto;
+                font-size: 22px;
+                color: #333;
+                font-family: cursive;
+                line-height: 30px;
+            }
+
+                .about-txt a {
+                    text-decoration: none;
+                    font-size: 25px;
+                    color: rgb(17, 16, 17);
+                    margin-right: 20px;
+                }
+        }
+
+        footer {
+            background: #ffffff;
+            color: #fff;
+            font-family: 'montserrat';
+        }
+
+        .logo2 {
+            height: 50px;
+            margin: 30px 20px 5px;
+        }
+
+        .content1 {
+            margin: 20px;
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        .content2 {
+            margin-top: 50px;
+            margin-left: 30px;
+            font-weight: bold;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            display: inline-block;
+            font-family: 'open sans';
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .icons {
+            margin-left: 14%;
+            margin-top: 4%;
+        }
+
+            .icons .icon-link {
+                color: #fff;
+                margin-right: 10px;
+            }
+
+        .logo-one {
+            height: 50px;
+            margin: 10px 50px 10px;
+        }
+
+        @@media (max-width:768px) {
+
+            .navbar {
+                z-index: 10;
+            }
+
+            .navbar-brand .logo-one {
+                margin-left: 5px !important;
+                height: 40px;
+            }
+
+            .icons {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
+<nav class="navbar navbar-expand-md navbar-light " style="background-color: #ffffff;">
+    <a href="#" class="navbar-brand">
+        <img src="https://godriverental.com/wp-content/uploads/2022/10/Go-Drive-Logo-invertido.png" alt="Logo" class="logo" style="max-width: 125px; height: auto;">
+        <span id="loggedInUser" class="navbar-text"></span>
+        <style>
+            .navbar-brand {
+                color: #ffffff;
+                font-size: 24px;
+                font-style: italic
+            }
+        </style>
+
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <div class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="index.cshtml" class="nav-item nav-link">Home</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Book.cshtml" class="nav-item nav-link">Bookings</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Locations.cshtml" class="nav-item nav-link">Locations</a></b>
+
+            </li>
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Analytics.cshtml" class="nav-item nav-link">Analytics</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="SignUp.cshtml" class="nav-item nav-link">Sign Up</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="AboutUs.cshtml" class="nav-item nav-link">About us</a></b>
+
+            </li>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="#" class="nav-item nav-link"></a></b>
+
+            </li>
+            <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                <a href="#" class="nav-item nav-link"></a>
+
+                <b><a href="Feedback.cshtml" class="nav-item nav-link">Feedback</a></b>
+
+            </li>
+
+        </div>
+    </div>
+
+</nav>
 <body>
-    <h2>Hello world!</h2>
-</body>
+<div class="bg-img">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p class="text-white text-center" style="font-size: 20px; margin-top: 100px;">**GoDrive Rentals** is your trusted partner for all your car rental needs in the beautiful Sunshine State of Florida. We offer a wide range of vehicles to suit your every need, whether you're on a family vacation, a business trip, or just exploring the scenic routes of Florida.</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <!-- <div class="col-md-4">
+            <form action="login.php" method="post">
+                <h1 class="text-white text-center">Login</h1>
+                <label for="email" class="text-white"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required="" style="margin-top: 20px;">
+                <label for="psw" class="text-white"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pass" required="">
+                <button type="submit" class="btn btn-block" name="login">Login</button>
+            </form>
+        </div>-->
+        <div class="container mt-5">
+            <h1 class="text-center">Login</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-interval="10000">
+            <style>
+                .custom-height {
+                    height: 900px;
+                }
+            </style>
+
+            <img src="https://images.unsplash.com/photo-1441148345475-03a2e82f9719?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 custom-height" alt="...">
+
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Customize Your Ride</h2>
+                <p>We have thousands of cars available to suit all driving styles and terrain.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-interval="2000">
+            <style>
+                .custom-height {
+                    height: 900px;
+                }
+            </style>
+            <img src="https://images.unsplash.com/photo-1596649714492-a8f90ecb3776?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 custom-height" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Instant Booking</h2>
+                <p>Guaranteed reservations in the time and place you need it. Get instant confirmation of your car.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+
+            <style>
+                .custom-height {
+                    height: 900px;
+                }
+            </style>
+            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100 custom-height" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Safe & Secure</h2>
+                <p>We qualify and only work with the best car stores in Florida. Easy secure online check-out.</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<script>
+    // Your JavaScript code here
+    // Dummy username and password for demonstration
+    const dummyUsername = "Keerthi";
+    const dummyPassword = "123";
+
+    // Function to handle form submission
+    $("#loginForm").submit(function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the entered username and password
+        const enteredUsername = $("#username").val();
+        const enteredPassword = $("#password").val();
+
+        // Check if the entered username and password match the dummy credentials
+        if (enteredUsername === dummyUsername && enteredPassword === dummyPassword) {
+            // If the credentials match, show a success message and redirect to the index page
+            //alert("Login successful! User logged in.");
+
+            //localStorage.setItem("loggedInUser", enteredUsername);
+            // Show a success message
+            console.log("Setting logged-in user:", enteredUsername); // Add this line
+        sessionStorage.setItem("loggedInUser", enteredUsername);
+            alert("Login successful! " + enteredUsername + " logged in.");
+            window.location.href = "index.html";
+        } else {
+            // If the credentials do not match, show an error message
+            alert("Invalid username or password. Please try again.");
+        }
+    });
+
+    //function setLoggedInUser(username) {
+      //  localStorage.setItem("loggedInUser", username);
+   // }
+
+    // Your JavaScript code here
+    // Function to get the logged-in user's name from localStorage
+
+    function setLoggedInUser(username) {
+        sessionStorage.setItem("loggedInUser", username);
+    }
+
+    function getLoggedInUser() {
+        return sessionStorage.getItem("loggedInUser");
+    }
+
+    // Function to display the logged-in user's name in the navbar
+    function displayLoggedInUser() {
+            console.log("displayLoggedInUser function called");
+        const loggedInUser = getLoggedInUser();
+        if (loggedInUser) {
+            $("#loggedInUser").text("Welcome!" +" " +loggedInUser);
+        }
+    }
+
+    // Call the function when the page loads
+    $(document).ready(function () {
+       displayLoggedInUser();
+    });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+
 </html>

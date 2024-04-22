@@ -1,0 +1,299 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login V13</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="ss-2.jpg" />
+    <style>
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1568417215354-9a9e77b3fb4c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Updated font-family */
+        }
+
+        .navbar {
+            background-color: #ffffff;
+        }
+
+        .navbar-brand {
+            color: #000000;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #000000;
+        }
+
+            .navbar-nav .nav-item .nav-link:hover {
+                color: #F0c540;
+            }
+
+        .container-login100 {
+            border-radius: 10px;
+            padding: 50px;
+            margin: 50px auto;
+            max-width: 1000px;
+        }
+
+        .login100-form-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .input100 {
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .label-input100 {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .container-login100-form-btn {
+            text-align: center;
+        }
+
+        .login100-form-btn {
+            background-color: #F0c540;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+            .login100-form-btn:hover {
+                background-color: #d9b236;
+            }
+
+        .wrap-login100-form-btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .login100-form-bgbtn {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 300%;
+            background-color: #F0c540;
+            border-radius: 5px;
+            transition: all 0.4s;
+        }
+
+        .wrap-login100-form-btn:hover .login100-form-bgbtn {
+            transform: translateY(-70%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light " style="background-color: #ffffff;">
+        <a href="#" class="navbar-brand">
+            <img src="https://godriverental.com/wp-content/uploads/2022/10/Go-Drive-Logo-invertido.png" alt="Logo" class="logo" style="max-width: 125px; height: auto;">
+            <span id="loggedInUser" class="navbar-text"></span>
+            <style>
+                .navbar-brand {
+                    color: #ffffff;
+                    font-size: 24px;
+                    font-style: italic
+                }
+            </style>
+
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <div class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="index.cshtml" class="nav-item nav-link">Home</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Book.cshtml" class="nav-item nav-link">Bookings</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Locations.cshtml" class="nav-item nav-link">Locations</a></b>
+
+                </li>
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Analytics.cshtml" class="nav-item nav-link">Analytics</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="SignUp.cshtml" class="nav-item nav-link">Sign Up</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="AboutUs.cshtml" class="nav-item nav-link">About us</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Feedback.cshtml" class="nav-item nav-link">Feedback</a></b>
+
+                </li>
+
+            </div>
+        </div>
+
+    </nav>
+    <div class="container-login100">
+        <div class="form-container">
+            <div class="container-login100">
+                <form class="login100-form validate-form" action="reg_connect.php" method="post">
+                    <span class="login100-form-title"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Name is required">
+                        <span class="label-input100">Full Name</span>
+                        <input class="input100" type="text" name="name" placeholder="Name...">
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="text" name="email" placeholder="Email addess...">
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Username is required">
+                        <span class="label-input100">Username</span>
+                        <input class="input100" type="text" name="username" placeholder="Username...">
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" name="pass" placeholder="*************">
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Repeat Password is required">
+                        <span class="label-input100">Repeat Password</span>
+                        <input class="input100" type="password" name="repeatpass" placeholder="*************">
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn" type="button" name="submit" onclick="bookCab()">Sign Up</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function bookCab() {
+            // Process booking here (if needed)
+
+            // Redirect to success page
+            window.location.href = "success2.html";
+        }
+
+
+
+
+    </script>
+    <!-- JavaScript libraries -->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"> </script>
+    <script src="vendor/animsition/js/animsition.min.js"> </script>
+    <script src="vendor/bootstrap/js/popper.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"> </script>
+    <script src="vendor/select2/select2.min.js"> </script>
+    <script src="vendor/daterangepicker/moment.min.js"> </script>
+    <script src="vendor/daterangepicker/daterangepicker.js"> </script>
+    <script src="vendor/countdowntime/countdowntime.js"> </script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"> </script>
+</body>
+</html>

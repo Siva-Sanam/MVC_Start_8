@@ -1,0 +1,237 @@
+﻿<!--
+  Example to introduce charting in MVC using chart.js
+
+  Author: Manish Agrawal
+  Date: Feb 25, 2019
+
+  Many examples use or are inspired by
+  http://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/
+-->
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Chart.js examples</title>
+    <!-- Include Chart.js library -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1578475901193-c2ae2b3cd710?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            box-sizing: border-box;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light " style="background-color: #ffffff;">
+        <a href="#" class="navbar-brand">
+            <img src="https://godriverental.com/wp-content/uploads/2022/10/Go-Drive-Logo-invertido.png" alt="Logo" class="logo" style="max-width: 125px; height: auto;">
+            <span id="loggedInUser" class="navbar-text"></span>
+            <style>
+                .navbar-brand {
+                    color: #ffffff;
+                    font-size: 24px;
+                    font-style: italic
+                }
+            </style>
+
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <div class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="index.cshtml" class="nav-item nav-link">Home</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Book.cshtml" class="nav-item nav-link">Bookings</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Locations.cshtml" class="nav-item nav-link">Locations</a></b>
+
+                </li>
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Analytics.cshtml" class="nav-item nav-link">Analytics</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="SignUp.cshtml" class="nav-item nav-link">Sign Up</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="AboutUs.cshtml" class="nav-item nav-link">About us</a></b>
+
+                </li>
+
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="#" class="nav-item nav-link"></a></b>
+
+                </li>
+                <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                    <a href="#" class="nav-item nav-link"></a>
+
+                    <b><a href="Feedback.cshtml" class="nav-item nav-link">Feedback</a></b>
+
+                </li>
+
+            </div>
+        </div>
+
+    </nav>
+    <div class="container">
+        <h2>Average Customer Ratings of Different Class of Cars in Florida State (Apr'23-Mar'24) (On scale of 10)</h2>
+        <!-- Corrected canvas ID -->
+        <canvas id="barchart1" width="170" height="70" style="background-color: rgba(0, 0, 0, 0.7); border: 2px solid #ffffff;"></canvas>
+        <script>
+            new Chart(document.getElementById("barchart1"), {
+                type: 'bar',
+                data: {
+                    labels: ["Miami", "Orlando", "Tampa", "Tallahassee", "Sarasota", "St. Petersburg"],
+                    datasets: [
+                        {
+                            label: "SUV",
+                            backgroundColor: "#3cba9f",
+                            data: [9, 9.1, 8.9, 8.8, 7.6, 9.3]
+                        }, {
+                            label: "Sedan",
+                            backgroundColor: "#c45850",
+                            data: [8.6, 9.3, 9.1, 9.2, 9, 8.8]
+                        }, {
+                            label: "Mini",
+                            backgroundColor: "#e8c3b9",
+                            data: [7.8, 8.7, 9, 8.9, 8.5, 9.4]
+                        }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Average Customer Ratings of Different Class of Cars in Florida State (On a scale of 10)',
+                        fontColor: '#ffffff'
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                fontColor: '#ffffff'
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                fontColor: '#ffffff'
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

@@ -6,71 +6,49 @@ namespace MVC_Start_8.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index(int id)
+    public IActionResult Book(int id)
     {
         return View();
     }
 
-    public IActionResult IndexWithLayout()
+    public IActionResult AboutUs(int id)
     {
         return View();
     }
 
-    public IActionResult Contact()
+    public IActionResult SignUp(int id)
     {
-        TempData["name"] = "ISM 6225";
-
-        GuestContact contact = new GuestContact();
-
-        contact.Name = "Manish Agrawal";
-        contact.Email = "magrawal@usf.edu";
-        contact.Phone = "813-974-6716";
-
-
-        /* alternate syntax to initialize object 
-        GuestContact contact2 = new GuestContact
-        {
-          Name = "Manish Agrawal",
-          Email = "magrawal@usf.edu",
-          Phone = "813-974-6716"
-        };
-        */
-
-        //ViewData["Message"] = "Your contact page.";
-
-        return View(contact);
+        return View();
     }
 
-    [HttpPost]
-    public IActionResult Contact(GuestContact contact)
-    {
-        string name = TempData["name"].ToString();
+    public IActionResult index(int id)
+    { 
 
-        return View(contact);
+        return View();
     }
 
-    /// <summary>
-    /// Replicate the chart example in the JavaScript presentation
-    /// 
-    /// Typically LINQ and SQL return data as collections.
-    /// Hence we start the example by creating collections representing the x-axis labels and the y-axis values
-    /// However, chart.js expects data as a string, not as a collection.
-    ///   Hence we join the elements in the collections into strings in the view model
-    /// </summary>
-    /// <returns>View that will display the chart</returns>
-    public ViewResult DemoChart()
+   
+    public IActionResult Locations()
     {
-        string[] ChartLabels = new string[] { "Africa", "Asia", "Europe", "Latin America", "North America" };
-        int[] ChartData = new int[] { 2478, 5267, 734, 784, 433 };
+        return View();
+    }
 
-        ChartModel Model = new ChartModel
-        {
-            ChartType = "bar",
-            Labels = String.Join(",", ChartLabels.Select(d => "'" + d + "'")),
-            Data = String.Join(",", ChartData.Select(d => d)),
-            Title = "Predicted world population (millions) in 2050"
-        };
+    public IActionResult Feedback()
+    {
+        return View();
+    }
+    public IActionResult success(int id)
+    {
+        return View();
+    }
 
-        return View(Model);
+    public IActionResult success2()
+    {
+        return View();
+    }
+
+    public ViewResult Analytics(int id)
+    {
+        return View();
     }
 }
